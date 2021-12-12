@@ -1,0 +1,2 @@
+# yQS8Ge3zt6aO_A gh2563qq
+scp -P 27349 dist.zip root@66.112.223.80:/test
