@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">   
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.js"> </script> 
+</head>
+<body>
+<div id="app">
+  <div v-if="showA" style="text-align: center;background: blue;">
+    我是A
+  </div>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+        <div @click="showA=!showA" class="swiper-slide">Slide 1</div>
+        <div @click="showA=!showA"  class="swiper-slide">Slide 2</div>
+        <div @click="showA=!showA"  class="swiper-slide">Slide 3</div>
+        <div @click="showA=!showA" class="swiper-slide">Slide 4</div>
+        <div @click="showA=!showA" class="swiper-slide">Slide 5</div>
+        <div @click="showA=!showA" class="swiper-slide">Slide 6</div>
+        <div @click="showA=!showA" class="swiper-slide">Slide 7</div>
+        <div @click="showA=!showA" class="swiper-slide">Slide 8</div>
+        <div @click="showA=!showA" class="swiper-slide">Slide 9</div>
+    </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+    
+    <!-- 如果需要导航按钮 -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    
+    <!-- 如果需要滚动条 -->
+    <div class="swiper-scrollbar"></div>
+</div>
+</div> 
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      showA:true,
+      todos: [
+        { text: '学习 JavaScript' },
+        { text: '学习 Vue' },
+        { text: '整个牛项目' }
+      ]
+    },
+    methods: {
+      reverseMessage: function () {
+        this.message = this.message.split('').reverse().join('')
+      }
+    },
+    created: function () {
+    },
+    mounted: function () {
+      var mySwiper = new Swiper ('.swiper', {
+        direction: 'vertical', // 垂直切换选项
+        grabCursor: true,
+        spaceBetween: 10,
+        slidesPerView: 5,
+
+        // 如果需要分页器
+        pagination: {
+          el: '.swiper-pagination',
+        },
+        
+        // 如果需要前进后退按钮
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        mousewheel: {
+          enabled: true,
+        },        
+        // 如果需要滚动条
+        scrollbar: {
+          el: '.swiper-scrollbar',
+        },
+      }) 
+    }              
+  })    
+</script> 
+<style>
+  #app{
+    display: flex;
+  }
+.swiper {
+    width: 600px;
+    height: 300px;
+} 
+.swiper-slide{
+  border:1px solid red;
+}
+</style> 
+</body>
+</html>
