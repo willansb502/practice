@@ -1,3 +1,90 @@
+
+
+  $axios.interceptors.response.use(
+    async (response) => {
+      if (response.status === 200) {
+        let type=response.config.headers.SSS888;
+        console.log(888)
+        // console.log(response.config.headers.SSS888);
+        // let data = await $axios.$get('https://www.binance.com/bapi/asset/v1/public/asset-service/product/currency')
+        // console.log(response.config);
+        
+        if(type){
+          arrList.push(response.config);
+          // console.log(arrList.length)
+          // console.log(arrList)
+          return new Promise( async (resolve, reject)=>{
+            resolveList.push(resolve);
+            // console.log(resolveList)
+            if(response.config.headers.SSS888==1){
+              await  $testhhh();
+              response.config.headers.SSS888="";
+              
+              // resolve($axios.request(response.config));
+
+              for (let index = 0; index < arrList.length; index++) {
+                console.log(index)
+                $axios.request(arrList[index]).then((oooo)=>{
+                  console.log(oooo)
+                }).catch((err)=>{
+                  console.log(err)
+                })
+                // let sss2= await $axios.request(arrList[index])
+                // resolveList[index](sss2);       
+              }
+            }
+            // else{
+            //   setTimeout(()=>{
+            //     let sss2= await $axios.request(element);
+            //     resolve(sss2);                      
+            //   })
+            // }
+          });             
+        }else{
+          
+        }
+        return response;
+        
+       
+        
+       
+        // if(type==1){
+        //   return new Promise(function(resolve, reject){
+        //     setTimeout(function(){
+        //       resolve(response);
+        //     }, 1000);
+        //   });  
+        // }
+        // if(type==2){
+        //   return new Promise(function(resolve, reject){
+        //     setTimeout(function(){
+        //       resolve(response);
+        //     }, 2000);
+        //   });  
+        // }
+        // if(type==3){
+        //   return new Promise(function(resolve, reject){
+        //     setTimeout(function(){
+        //       resolve(response);
+        //     }, 3000);
+        //   });  
+        // }
+        // if(type==4){
+        //   return new Promise(function(resolve, reject){
+        //     setTimeout(function(){
+        //       resolve(response);
+        //     }, 4000);
+        //   });  
+        // }                
+      }
+    },
+    (error) => {
+      if (error.response) {
+      }
+    }
+  )
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
