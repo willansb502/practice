@@ -1,0 +1,9 @@
+<?php
+error_reporting(E_ERROR | E_WARNING | E_PARSE);
+switch($LabelArray['PageType']){
+	case 'List':
+	$LabelArray['Html']=str_replace('\\/','/',$LabelArray['Html']);
+	break;
+}
+echo serialize($LabelArray);
+?>
